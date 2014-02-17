@@ -81,13 +81,39 @@ class MinBraid():
         return not self.even(c)
 
     def bincode(self, l):
-        s = self.minbraid_str(l)
+        s = l
+#        s = self.minbraid_str(l)
         bc = 0
 
         for i in s:
-            if self.even(i) and i in string.ascii_uppercase:
+            if (not (self.odd(i) and i in string.ascii_uppercase)) and \
+               (not (self.even(i) and i in string.ascii_lowercase)):
                 bc = bc + 1
 
         return bc
 
-b = MinBraid(3, 4)
+b = MinBraid(3, 6)
+# l = [['A', 'b', 'A', 'b', 'D', 'c', 'B', 'B', 'D', 'c'],
+#      ['A', 'b', 'A', 'b', 'c', 'B', 'B', 'D', 'c', 'D'],
+#      ['A', 'A', 'b', 'A', 'b', 'c', 'B', 'a', 'B', 'c', 'B'],
+#      ['A', 'A', 'A', 'b', 'C', 'b', 'a', 'C', 'b', 'C', 'b'],
+#      ['A', 'A', 'A', 'b', 'a', 'C', 'b', 'a', 'C', 'b', 'C'],
+#      ['A', 'A', 'b', 'C', 'b', 'a', 'C', 'b', 'C', 'b', 'C'],
+#      ['A', 'b', 'A', 'c', 'b', 'd', 'C', 'C', 'E', 'd', 'E']]
+
+l = [['A', 'a', 'b', 'b'], 
+     ['a', 'A', 'b', 'b'],
+     ['a', 'a', 'B', 'b'],
+     ['a', 'a', 'b', 'B'],
+     ['A', 'A', 'B', 'b'],
+     ['A', 'a', 'B', 'B'],
+     ['a', 'A', 'B', 'B'],
+     ['A', 'A', 'b', 'B'],
+     ['A', 'A', 'b', 'b'],
+     ['A', 'a', 'B', 'b'],
+     ['A', 'a', 'b', 'B'],
+     ['a', 'A', 'B', 'b'],
+     ['a', 'A', 'b', 'B'],
+     ['a', 'a', 'B', 'B'],
+     ['A', 'A', 'B', 'B'],
+     ['a', 'a', 'b', 'b']]
